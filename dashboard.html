@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard - Vital Access</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-hospital"></i>
+                <h1>Vital Access</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="profile.html">My Profile</a></li>
+                <li><a href="hospitals.html">Hospitals</a></li>
+            </ul>
+            <div class="user-menu">
+                <div class="user-info">
+                    <img src="images/user-avatar.jpg" alt="User Avatar" class="user-avatar">
+                    <span class="user-name">John Doe</span>
+                </div>
+                <div class="dropdown-menu">
+                    <ul>
+                        <li><a href="profile.html"><i class="fas fa-user"></i> My Profile</a></li>
+                        <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                        <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="dashboard-main">
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li class="active"><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="profile.html"><i class="fas fa-user"></i> My Profile</a></li>
+                <li><a href="#"><i class="fas fa-notes-medical"></i> Medical Records</a></li>
+                <li><a href="#"><i class="fas fa-pills"></i> Medications</a></li>
+                <li><a href="#"><i class="fas fa-calendar-alt"></i> Appointments</a></li>
+                <li><a href="hospitals.html"><i class="fas fa-hospital"></i> Hospitals</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </aside>
+
+        <div class="dashboard-content">
+            <div class="welcome-banner">
+                <div class="welcome-text">
+                    <h2>Welcome back, <span id="patientName">John</span>!</h2>
+                    <p>Here's an overview of your health information</p>
+                </div>
+                <div class="date-time">
+                    <p id="currentDate">Monday, June 12, 2023</p>
+                    <p id="currentTime">10:30 AM</p>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-heartbeat"></i> Health Summary</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="health-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Blood Type</span>
+                                <span class="stat-value" id="bloodType">A+</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Height</span>
+                                <span class="stat-value" id="height">175 cm</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Weight</span>
+                                <span class="stat-value" id="weight">70 kg</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">BMI</span>
+                                <span class="stat-value" id="bmi">22.9</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-sm">View Details</a>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-pills"></i> Current Medications</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="medication-list" id="medicationList">
+                            <li>
+                                <div class="medication-info">
+                                    <h4>Lisinopril</h4>
+                                    <p>10mg - Once daily</p>
+                                </div>
+                                <div class="medication-time">
+                                    <span>Morning</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="medication-info">
+                                    <h4>Metformin</h4>
+                                    <p>500mg - Twice daily</p>
+                                </div>
+                                <div class="medication-time">
+                                    <span>Morning/Evening</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="medication-info">
+                                    <h4>Atorvastatin</h4>
+                                    <p>20mg - Once daily</p>
+                                </div>
+                                <div class="medication-time">
+                                    <span>Evening</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-sm">Manage Medications</a>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-calendar-alt"></i> Upcoming Appointments</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="appointment-list" id="appointmentList">
+                            <li>
+                                <div class="appointment-date">
+                                    <span class="day">15</span>
+                                    <span class="month">Jun</span>
+                                </div>
+                                <div class="appointment-info">
+                                    <h4>Dr. Sarah Johnson</h4>
+                                    <p>Cardiology - Annual Checkup</p>
+                                    <p><i class="fas fa-clock"></i> 10:00 AM</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="appointment-date">
+                                    <span class="day">22</span>
+                                    <span class="month">Jun</span>
+                                </div>
+                                <div class="appointment-info">
+                                    <h4>Dr. Michael Chen</h4>
+                                    <p>Endocrinology - Follow-up</p>
+                                    <p><i class="fas fa-clock"></i> 2:30 PM</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-sm">Schedule Appointment</a>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-exclamation-circle"></i> Allergies & Alerts</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="alert-list" id="alertList">
+                            <li class="alert-item alert-high">
+                                <i class="fas fa-allergies"></i>
+                                <div class="alert-info">
+                                    <h4>Penicillin</h4>
+                                    <p>Severe allergic reaction</p>
+                                </div>
+                            </li>
+                            <li class="alert-item alert-medium">
+                                <i class="fas fa-allergies"></i>
+                                <div class="alert-info">
+                                    <h4>Shellfish</h4>
+                                    <p>Moderate allergic reaction</p>
+                                </div>
+                            </li>
+                            <li class="alert-item alert-low">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <div class="alert-info">
+                                    <h4>Latex</h4>
+                                    <p>Mild sensitivity</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-sm">Update Allergies</a>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-hospital"></i> Nearby Hospitals</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="nearby-hospitals" id="nearbyHospitals">
+                            <div class="hospital-item">
+                                <div class="hospital-info">
+                                    <h4>City General Hospital</h4>
+                                    <p><i class="fas fa-map-marker-alt"></i> 2.3 miles away</p>
+                                    <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                                </div>
+                                <div class="hospital-status open">
+                                    <span>Open 24/7</span>
+                                </div>
+                            </div>
+                            <div class="hospital-item">
+                                <div class="hospital-info">
+                                    <h4>Westside Medical Center</h4>
+                                    <p><i class="fas fa-map-marker-alt"></i> 4.1 miles away</p>
+                                    <p><i class="fas fa-phone"></i> (555) 987-6543</p>
+                                </div>
+                                <div class="hospital-status open">
+                                    <span>Open 24/7</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="hospitals.html" class="btn btn-sm">View All Hospitals</a>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-file-medical"></i> Recent Documents</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="document-list" id="documentList">
+                            <li>
+                                <i class="fas fa-file-pdf"></i>
+                                <div class="document-info">
+                                    <h4>Blood Test Results</h4>
+                                    <p>Uploaded: June 5, 2023</p>
+                                </div>
+                                <a href="#" class="btn btn-icon"><i class="fas fa-download"></i></a>
+                            </li>
+                            <li>
+                                <i class="fas fa-file-pdf"></i>
+                                <div class="document-info">
+                                    <h4>Chest X-Ray Report</h4>
+                                    <p>Uploaded: May 22, 2023</p>
+                                </div>
+                                <a href="#" class="btn btn-icon"><i class="fas fa-download"></i></a>
+                            </li>
+                            <li>
+                                <i class="fas fa-file-pdf"></i>
+                                <div class="document-info">
+                                    <h4>Prescription</h4>
+                                    <p>Uploaded: May 15, 2023</p>
+                                </div>
+                                <a href="#" class="btn btn-icon"><i class="fas fa-download"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-sm">View All Documents</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Vital Access. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

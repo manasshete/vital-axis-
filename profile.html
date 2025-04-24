@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Profile - Vital Access</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-hospital"></i>
+                <h1>Vital Access</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="profile.html" class="active">My Profile</a></li>
+                <li><a href="hospitals.html">Hospitals</a></li>
+            </ul>
+            <div class="user-menu">
+                <div class="user-info">
+                    <img src="images/user-avatar.jpg" alt="User Avatar" class="user-avatar">
+                    <span class="user-name">John Doe</span>
+                </div>
+                <div class="dropdown-menu">
+                    <ul>
+                        <li><a href="profile.html"><i class="fas fa-user"></i> My Profile</a></li>
+                        <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                        <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="dashboard-main">
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li class="active"><a href="profile.html"><i class="fas fa-user"></i> My Profile</a></li>
+                <li><a href="#"><i class="fas fa-notes-medical"></i> Medical Records</a></li>
+                <li><a href="#"><i class="fas fa-pills"></i> Medications</a></li>
+                <li><a href="#"><i class="fas fa-calendar-alt"></i> Appointments</a></li>
+                <li><a href="hospitals.html"><i class="fas fa-hospital"></i> Hospitals</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </aside>
+
+        <div class="dashboard-content">
+            <div class="page-header">
+                <h2><i class="fas fa-user"></i> Patient Profile</h2>
+                <div class="page-actions">
+                    <button id="editProfileBtn" class="btn btn-outline"><i class="fas fa-edit"></i> Edit Profile</button>
+                </div>
+            </div>
+
+            <div class="profile-container">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <img src="images/user-avatar.jpg" alt="User Avatar" id="profileAvatar">
+                        <div class="avatar-overlay">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                    </div>
+                    <div class="profile-info">
+                        <h2 id="profileName">John Doe</h2>
+                        <p><i class="fas fa-id-card"></i> Patient ID: <span id="patientId">P12345</span></p>
+                        <p><i class="fas fa-calendar-alt"></i> Date of Birth: <span id="dateOfBirth">January 15, 1980</span></p>
+                        <p><i class="fas fa-venus-mars"></i> Gender: <span id="gender">Male</span></p>
+                    </div>
+                </div>
+
+                <div class="profile-tabs">
+                    <ul class="tabs-nav">
+                        <li class="active" data-tab="personal-info">Personal Information</li>
+                        <li data-tab="medical-history">Medical History</li>
+                        <li data-tab="emergency-contacts">Emergency Contacts</li>
+                        <li data-tab="insurance">Insurance</li>
+                    </ul>
+                    <div class="tabs-content">
+                        <div class="tab-pane active" id="personal-info">
+                            <div class="info-section">
+                                <h3>Contact Information</h3>
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <span class="info-label">Email</span>
+                                        <span class="info-value" id="email">john.doe@example.com</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Phone</span>
+                                        <span class="info-value" id="phone">(555) 123-4567</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Address</span>
+                                        <span class="info-value" id="address">123 Main St, Anytown, CA 90210</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info-section">
+                                <h3>Physical Information</h3>
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <span class="info-label">Blood Type</span>
+                                        <span class="info-value" id="bloodType">A+</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Height</span>
+                                        <span class="info-value" id="height">175 cm</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Weight</span>
+                                        <span class="info-value" id="weight">70 kg</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">BMI</span>
+                                        <span class="info-value" id="bmi">22.9</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info-section">
+                                <h3>Allergies</h3>
+                                <ul class="allergies-list" id="allergiesList">
+                                    <li class="allergy-item severity-high">
+                                        <span class="allergy-name">Penicillin</span>
+                                        <span class="allergy-severity">Severe</span>
+                                    </li>
+                                    <li class="allergy-item severity-medium">
+                                        <span class="allergy-name">Shellfish</span>
+                                        <span class="allergy-severity">Moderate</span>
+                                    </li>
+                                    <li class="allergy-item severity-low">
+                                        <span class="allergy-name">Latex</span>
+                                        <span class="allergy-severity">Mild</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="medical-history">
+                            <div class="info-section">
+                                <h3>Conditions</h3>
+                                <ul class="conditions-list" id="conditionsList">
+                                    <li class="condition-item">
+                                        <div class="condition-info">
+                                            <h4>Hypertension</h4>
+                                            <p>Diagnosed: 2018</p>
+                                        </div>
+                                        <div class="condition-status">
+                                            <span class="status-badge">Managed</span>
+                                        </div>
+                                    </li>
+                                    <li class="condition-item">
+                                        <div class="condition-info">
+                                            <h4>Type 2 Diabetes</h4>
+                                            <p>Diagnosed: 2019</p>
+                                        </div>
+                                        <div class="condition-status">
+                                            <span class="status-badge">Managed</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="info-section">
+                                <h3>Surgeries</h3>
+                                <ul class="surgeries-list" id="surgeriesList">
+                                    <li class="surgery-item">
+                                        <div class="surgery-info">
+                                            <h4>Appendectomy</h4>
+                                            <p>Date: May 2010</p>
+                                            <p>Hospital: City General Hospital</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="info-section">
+                                <h3>Family Medical History</h3>
+                                <ul class="family-history-list" id="familyHistoryList">
+                                    <li class="family-history-item">
+                                        <div class="family-history-info">
+                                            <h4>Hypertension</h4>
+                                            <p>Relation: Father</p>
+                                        </div>
+                                    </li>
+                                    <li class="family-history-item">
+                                        <div class="family-history-info">
+                                            <h4>Diabetes</h4>
+                                            <p>Relation: Mother</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="emergency-contacts">
+                            <div class="info-section">
+                                <h3>Primary Contact</h3>
+                                <div class="contact-card">
+                                    <div class="contact-info">
+                                        <h4 id="primaryContactName">Jane Doe</h4>
+                                        <p><i class="fas fa-user"></i> Relation: <span id="primaryContactRelation">Spouse</span></p>
+                                        <p><i class="fas fa-phone"></i> Phone: <span id="primaryContactPhone">(555) 987-6543</span></p>
+                                        <p><i class="fas fa-envelope"></i> Email: <span id="primaryContactEmail">jane.doe@example.com</span></p>
+                                        <p><i class="fas fa-map-marker-alt"></i> Address: <span id="primaryContactAddress">123 Main St, Anytown, CA 90210</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info-section">
+                                <h3>Secondary Contact</h3>
+                                <div class="contact-card">
+                                    <div class="contact-info">
+                                        <h4 id="secondaryContactName">Robert Doe</h4>
+                                        <p><i class="fas fa-user"></i> Relation: <span id="secondaryContactRelation">Son</span></p>
+                                        <p><i class="fas fa-phone"></i> Phone: <span id="secondaryContactPhone">(555) 456-7890</span></p>
+                                        <p><i class="fas fa-envelope"></i> Email: <span id="secondaryContactEmail">robert.doe@example.com</span></p>
+                                        <p><i class="fas fa-map-marker-alt"></i> Address: <span id="secondaryContactAddress">456 Oak St, Anytown, CA 90210</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="insurance">
+                            <div class="info-section">
+                                <h3>Primary Insurance</h3>
+                                <div class="insurance-card">
+                                    <div class="insurance-logo">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div class="insurance-info">
+                                        <h4 id="primaryInsuranceName">HealthPlus Insurance</h4>
+                                        <p>Policy Number: <span id="primaryPolicyNumber">HP123456789</span></p>
+                                        <p>Group Number: <span id="primaryGroupNumber">GP987654</span></p>
+                                        <p>Coverage: <span id="primaryCoverage">Family</span></p>
+                                        <p>Effective Date: <span id="primaryEffectiveDate">January 1, 2023</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info-section">
+                                <h3>Secondary Insurance</h3>
+                                <div class="insurance-card">
+                                    <div class="insurance-logo">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div class="insurance-info">
+                                        <h4 id="secondaryInsuranceName">MediSecure</h4>
+                                        <p>Policy Number: <span id="secondaryPolicyNumber">MS987654321</span></p>
+                                        <p>Group Number: <span id="secondaryGroupNumber">GS123456</span></p>
+                                        <p>Coverage: <span id="secondaryCoverage">Supplemental</span></p>
+                                        <p>Effective Date: <span id="secondaryEffectiveDate">January 1, 2023</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Vital Access. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/profile.js"></script>
+</body>
+</html>

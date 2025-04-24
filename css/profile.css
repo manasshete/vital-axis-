@@ -1,0 +1,408 @@
+/* Profile Styles */
+.profile-container {
+    background-color: var(--bg-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+/* Profile Header */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: rgba(37, 99, 235, 0.05);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.profile-avatar {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid white;
+    box-shadow: var(--shadow);
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    opacity: 0;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.profile-avatar:hover .avatar-overlay {
+    opacity: 1;
+}
+
+.profile-info h2 {
+    margin-bottom: 0.5rem;
+}
+
+.profile-info p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+}
+
+.profile-info p:last-child {
+    margin-bottom: 0;
+}
+
+.profile-info i {
+    color: var(--primary-color);
+    width: 1.25rem;
+}
+
+/* Profile Tabs */
+.profile-tabs {
+    padding: 2rem;
+}
+
+.tabs-nav {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+    overflow-x: auto;
+}
+
+.tabs-nav li {
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+    position: relative;
+}
+
+.tabs-nav li:hover {
+    color: var(--primary-color);
+}
+
+.tabs-nav li.active {
+    color: var(--primary-color);
+}
+
+.tabs-nav li.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+/* Info Sections */
+.info-section {
+    margin-bottom: 2.5rem;
+}
+
+.info-section:last-child {
+    margin-bottom: 0;
+}
+
+.info-section h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    color: var(--text-color);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-label {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.info-value {
+    font-weight: 500;
+}
+
+/* Allergies List */
+.allergies-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.allergy-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    min-width: 200px;
+}
+
+.allergy-severity {
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+}
+
+.severity-high {
+    background-color: rgba(239, 68, 68, 0.1);
+    border-left: 3px solid var(--error-color);
+}
+
+.severity-high .allergy-severity {
+    background-color: var(--error-color);
+    color: white;
+}
+
+.severity-medium {
+    background-color: rgba(245, 158, 11, 0.1);
+    border-left: 3px solid var(--warning-color);
+}
+
+.severity-medium .allergy-severity {
+    background-color: var(--warning-color);
+    color: white;
+}
+
+.severity-low {
+    background-color: rgba(16, 185, 129, 0.1);
+    border-left: 3px solid var(--success-color);
+}
+
+.severity-low .allergy-severity {
+    background-color: var(--success-color);
+    color: white;
+}
+
+/* Conditions List */
+.conditions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.condition-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--bg-light);
+    border-radius: var(--radius);
+}
+
+.condition-info h4 {
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+}
+
+.condition-info p {
+    margin-bottom: 0;
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+.status-badge {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+    background-color: var(--success-color);
+    color: white;
+}
+
+/* Surgeries List */
+.surgeries-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.surgery-item {
+    padding: 1rem;
+    background-color: var(--bg-light);
+    border-radius: var(--radius);
+}
+
+.surgery-info h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.surgery-info p {
+    margin-bottom: 0.25rem;
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+.surgery-info p:last-child {
+    margin-bottom: 0;
+}
+
+/* Family History List */
+.family-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.family-history-item {
+    padding: 1rem;
+    background-color: var(--bg-light);
+    border-radius: var(--radius);
+}
+
+.family-history-info h4 {
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+}
+
+.family-history-info p {
+    margin-bottom: 0;
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+/* Contact Card */
+.contact-card {
+    padding: 1.5rem;
+    background-color: var(--bg-light);
+    border-radius: var(--radius);
+}
+
+.contact-info h4 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.contact-info p:last-child {
+    margin-bottom: 0;
+}
+
+.contact-info i {
+    color: var(--primary-color);
+    width: 1.25rem;
+}
+
+/* Insurance Card */
+.insurance-card {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background-color: var(--bg-light);
+    border-radius: var(--radius);
+}
+
+.insurance-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: var(--radius);
+}
+
+.insurance-logo i {
+    font-size: 2rem;
+}
+
+.insurance-info {
+    flex: 1;
+}
+
+.insurance-info h4 {
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+}
+
+.insurance-info p {
+    margin-bottom: 0.5rem;
+}
+
+.insurance-info p:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .profile-avatar {
+        margin: 0 auto;
+    }
+
+    .tabs-nav {
+        justify-content: flex-start;
+    }
+
+    .insurance-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .profile-tabs {
+        padding: 1.5rem;
+    }
+
+    .tabs-nav li {
+        padding: 0.5rem 1rem;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
